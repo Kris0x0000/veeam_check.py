@@ -13,7 +13,7 @@ import datetime
 ##################### edit below ################################
 
 # Path to logs. Default: C:\\ProgramData\\Veeam\\Backup\\. Double backslashes are required by Python.
-path='C:\\ProgramData\\Veeam\\Backup\\'
+base_path='C:\\ProgramData\\Veeam\\Backup\\'
 
 # find_time (hours) - time window to search successful backup job. Default 24 hours, menas
 # the script will search completed backups ended in the last 24 hours.
@@ -48,7 +48,7 @@ def readLine(number, logfile):
 def findLastStartedJob(text):
 # returns last started backup job session id and its start time
 
-    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <..> Info.........STARTBACKUPJOB"
+    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <..> Info.........START.+"
 
     jobs=[]
     count=0
@@ -60,15 +60,7 @@ def findLastStartedJob(text):
         job_name=""
         if(found):
             task_id=readLine(count+3, path)
-            job_name=readLine(count+14, path)
-            found = False
-            found = re.search(backup_job_name, job_name)
-
-            if(found):
-                jobs.append(task_id)
-            else:
-                print(2)
-                sys.exit()
+            jobs.append(task_id)
 
     if not jobs:
         print(2)
@@ -79,6 +71,7 @@ def findLastStartedJob(text):
     backup_start_time=StripDateAndTime(job)
     session_id=elements[-1]
     session_id = session_id.strip('\n')
+    #print(session_id)
     answer=[session_id, backup_start_time]
     return answer
 
@@ -98,11 +91,10 @@ def StripDateAndTime(line):
         sys.exit()
 
 
-
 def FindCompletedBackupJob(text, session_id, start_time):
 # returns exit code
 
-    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <..> Info.+Job session '"+session_id+"' has been completed, status:.+"
+    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <.+> Info.+Job session '"+session_id+"' has been completed, status:.+"
     expr_warning="status: \'Warning\'"
     expr_success="status: \'Success\'"
 
@@ -136,11 +128,15 @@ else:
 
 
 # add '\' at the end of the path if missing
-if(path[-1:] != "\\"):
-    path=path+"\\"
+if(base_path[-1:] != "\\"):
+    base_path=base_path+"\\"
 
 # create full path to the log file
-path=path+backup_job_name+'\\''Job.'+backup_job_name+'.Backup.log'
+path=base_path+backup_job_name+'\\''Job.'+backup_job_name+'.Backup.log'
+if not os.path.isfile(path):
+   path=base_path+backup_job_name+'\\''Job.'+backup_job_name+'.log'
+
+#print(path)
 
 file = readFile(path)
 started_job=findLastStartedJob(file)
