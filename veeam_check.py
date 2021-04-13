@@ -132,9 +132,9 @@ if(base_path[-1:] != "\\"):
     base_path=base_path+"\\"
 
 # create full path to the log file
-path=base_path+backup_job_name+'\\''Job.'+backup_job_name+'.Backup.log'
+path=base_path+backup_job_name+'\\'+'Job.'+backup_job_name+'.Backup.log'
 if not os.path.isfile(path):
-   path=base_path+backup_job_name+'\\''Job.'+backup_job_name+'.log'
+   path=base_path+backup_job_name+'\\'+'Job.'+backup_job_name+'.log'
 
 #print(path)
 
