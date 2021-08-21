@@ -1,5 +1,6 @@
 # Script for getting job status in Veeam Backup & Replication
 
+## Usage
 
 Usage via command line: python veeam_check.py backup_job_name backup_copy_job_name (optional).
 

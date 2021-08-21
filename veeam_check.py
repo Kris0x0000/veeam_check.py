@@ -143,7 +143,6 @@ def BackupCopyJobOption():
         base_path=base_path+"\\"
 
     # create full path to the log file
-    # C:\ProgramData\Veeam\Backup\Backup_Copy_Job_1\pswa-esx1\Job.pswa-esx1.BackupSync
     
     path=base_path+backup_copy_job_name+'\\'+backup_job_name+'\\'+'Job.'+backup_job_name+'.BackupSync.log'
 
@@ -156,7 +155,6 @@ def BackupCopyJobOption():
     # [18.08.2021 18:02:45] <01> Info         Job session '16a6046b-eac7-4f4f-909e-3830ee2815d7' has been completed, status: 'Success'
     expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <.+> Info.+Job session '"+session_id+"' has been completed, status:.+"
     completed_job=FindCompletedBackupJob(file, session_id, start_time, expr)
-    
     print(completed_job) 
 
 
