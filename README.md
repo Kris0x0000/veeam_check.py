@@ -22,7 +22,7 @@ veeam_check[backup_job_name, backup_copy_job_name (optional)].
 UserParameter=veeam_check[*],"python" "C:\scripts\veeam_check.py" $1 $2.
 ```
 
-- Requirements: Python 3.x installed on the target machine. Please **DO NOT** install Python inside C:\Users\ becouse Zabbix Agent won't have access to it.
-It is safe to to install Python in *C:\* or *C:\Program Files.*
+- Requirements: Python 3.x installed on the target machine. Please **DO NOT** install Python inside C:\Users\ (which is the default installation path!) becouse Zabbix Agent won't have access to it.
+It is safe to to install Python in C:\ or C:\Program Files.
 
 
