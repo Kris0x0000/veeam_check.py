@@ -4,7 +4,12 @@
 
 - Usage via command line: 
 ```
-python veeam_check.py backup_job_name backup_copy_job_name (optional).
+python veeam_check.py [backup_job_name] [backup_copy_job_name (optional)].
+```
+
+- Testing with Zabbix Agent:
+```
+zabbix_agentd -c C:\Program Files\Zabbix Agent\zabbix_agentd.conf -t veeam_check [backup_job_name] [backup_copy_job_name (optional)]
 ```
 - Exit codes: 0 - Successful backup, 1 - Backup completed with warings, 2 - No successful backup found in the given find_time
 
