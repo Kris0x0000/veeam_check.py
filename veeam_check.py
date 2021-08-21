@@ -4,9 +4,9 @@ import time
 import sys
 import datetime
 
-# Usage via command line: python veeam_check.py backup_job_name.
-# Usage as Zabbix item: veeam_check[backup_job_name].
-# Configuration example: UserParameter=veeam_check[*],python C:\scripts\veeam_check.py $1.
+# Usage via command line: python veeam_check.py backup_job_name backup_copy_job_name (optional).
+# Usage as Zabbix item: veeam_check[backup_job_name, backup_copy_job_name (optional)] .
+# Configuration example: UserParameter=veeam_check[*],python C:\scripts\veeam_check.py $1 $2.
 # Requirements: Python 3.x installed on the target.
 # Exit codes: 0 - Successful backup, 1 - Backup completed with warings, 2 - No successful backup found in the given find_time
 
@@ -14,7 +14,6 @@ import datetime
 
 # Path to logs. Default: C:\\ProgramData\\Veeam\\Backup\\. Double backslashes are required by Python.
 base_path='C:\\ProgramData\\Veeam\\Backup\\'
-
 # find_time (hours) - time window to search successful backup job. Default 24 hours, menas
 # the script will search completed backups ended in the last 24 hours.
 find_time=24
@@ -45,10 +44,8 @@ def readLine(number, logfile):
     return lines
 
 
-def findLastStartedJob(text):
+def findLastStartedJob(path, text, expr):
 # returns last started backup job session id and its start time
-
-    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <..> Info.........START.+"
 
     jobs=[]
     count=0
@@ -91,10 +88,9 @@ def StripDateAndTime(line):
         sys.exit()
 
 
-def FindCompletedBackupJob(text, session_id, start_time):
+def FindCompletedBackupJob(text, session_id, start_time, expr):
 # returns exit code
 
-    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <.+> Info.+Job session '"+session_id+"' has been completed, status:.+"
     expr_warning="status: \'Warning\'"
     expr_success="status: \'Success\'"
 
@@ -118,29 +114,66 @@ def FindCompletedBackupJob(text, session_id, start_time):
     else:
         return 2
 
+def BackupJobOption():
+    global base_path
+    
+    # add '\' at the end of the path if missing
+    if(base_path[-1:] != "\\"):
+        base_path=base_path+"\\"
+    # create full path to the log file
+    path=base_path+backup_job_name+'\\'+'Job.'+backup_job_name+'.Backup.log'
+    if not os.path.isfile(path):
+       path=base_path+backup_job_name+'\\'+'Job.'+backup_job_name+'.log'
+
+    file = readFile(path)
+    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <..> Info.........START.+"
+    started_job=findLastStartedJob(path, file, expr)
+    session_id=started_job[0]
+    start_time=started_job[1]
+    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <.+> Info.+Job session '"+session_id+"' has been completed, status:.+"
+    completed_job=FindCompletedBackupJob(file, session_id, start_time, expr)
+  
+    print(completed_job)    
+
+
+def BackupCopyJobOption():
+    global base_path
+    # add '\' at the end of the path if missing
+    if(base_path[-1:] != "\\"):
+        base_path=base_path+"\\"
+
+    # create full path to the log file
+    # C:\ProgramData\Veeam\Backup\Backup_Copy_Job_1\pswa-esx1\Job.pswa-esx1.BackupSync
+    
+    path=base_path+backup_copy_job_name+'\\'+backup_job_name+'\\'+'Job.'+backup_job_name+'.BackupSync.log'
+
+    file = readFile(path)
+    # [14.08.2021 17:35:23] <01> Info         
+    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <..> Info.........START.+"
+    started_job=findLastStartedJob(path, file, expr)
+    session_id=started_job[0]
+    start_time=started_job[1]
+    # [18.08.2021 18:02:45] <01> Info         Job session '16a6046b-eac7-4f4f-909e-3830ee2815d7' has been completed, status: 'Success'
+    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <.+> Info.+Job session '"+session_id+"' has been completed, status:.+"
+    completed_job=FindCompletedBackupJob(file, session_id, start_time, expr)
+    
+    print(completed_job) 
+
 
 # main program
 if(len(sys.argv) < 2):
     print("Missing argument. Usage: python veem_check.py [backup_job_name]")
     sys.exit()
-else:
+elif(len(sys.argv) == 3):
+    # find backup copy job
     backup_job_name=str(sys.argv[1])
+    backup_copy_job_name=str(sys.argv[2])
+    BackupCopyJobOption()
+    
+elif(len(sys.argv) == 2):
+    # find backup job
+    backup_job_name=str(sys.argv[1])
+    BackupJobOption()
+    
 
 
-# add '\' at the end of the path if missing
-if(base_path[-1:] != "\\"):
-    base_path=base_path+"\\"
-
-# create full path to the log file
-path=base_path+backup_job_name+'\\'+'Job.'+backup_job_name+'.Backup.log'
-if not os.path.isfile(path):
-   path=base_path+backup_job_name+'\\'+'Job.'+backup_job_name+'.log'
-
-#print(path)
-
-file = readFile(path)
-started_job=findLastStartedJob(file)
-session_id=started_job[0]
-start_time=started_job[1]
-completed_job=FindCompletedBackupJob(file, session_id, start_time)
-print(completed_job)
