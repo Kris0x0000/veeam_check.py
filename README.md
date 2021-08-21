@@ -13,9 +13,9 @@ Exit codes: 0 - Successful backup, 1 - Backup completed with warings, 2 - No suc
 
 ## Known issues
 
-** Can't find a default Python error **
+**Can't find a default Python error**
 
-Issue: When this issue occurs in Windows usually this is caused by installing python inside user's profile. 
+**Issue:** When this issue occurs in Windows usually this is caused by installing python inside user's profile. 
 
-Fix: Install python inside C:\ ,restart Zabbix Service.
+**Fix:** Install python inside C:\ ,restart Zabbix Service.
 
