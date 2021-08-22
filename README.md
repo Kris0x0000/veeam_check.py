@@ -33,7 +33,7 @@ Backup Copy Job is always created for individual Backup Job.
 
 ## Requirements
 
--Python 3.x installed on the target machine. Please **DO NOT** install Python inside C:\Users\ (which is the default installation path!) becouse Zabbix Agent won't have access to it.
+- Python 3.x installed on the target machine. Please **DO NOT** install Python inside C:\Users\ (which is the default installation path!) becouse Zabbix Agent won't have access to it.
 It is safe to to install Python in C:\ or C:\Program Files.
 
 
