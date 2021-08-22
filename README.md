@@ -31,7 +31,9 @@ veeam_check[backup_job_name, backup_copy_job_name].
 Remember that you need to type both **backup_job_name** and **backup_copy_job_name** when checking status of **backup_copy_job_name**. This is becouse Veeam 
 Backup Copy Job is always created for individual Backup Job.
 
-- Requirements: Python 3.x installed on the target machine. Please **DO NOT** install Python inside C:\Users\ (which is the default installation path!) becouse Zabbix Agent won't have access to it.
+## Requirements
+
+-Python 3.x installed on the target machine. Please **DO NOT** install Python inside C:\Users\ (which is the default installation path!) becouse Zabbix Agent won't have access to it.
 It is safe to to install Python in C:\ or C:\Program Files.
 
 
