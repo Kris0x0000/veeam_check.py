@@ -126,11 +126,11 @@ def BackupJobOption():
        path=base_path+backup_job_name+'\\'+'Job.'+backup_job_name+'.log'
 
     file = readFile(path)
-    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <..> Info.+START.+"
+    expr="\[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+START.+"
     started_job=findLastStartedJob(path, file, expr)
     session_id=started_job[0]
     start_time=started_job[1]
-    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <.+> Info.+Job session '"+session_id+"' has been completed, status:.+"
+    expr="\[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session '"+session_id+"' has been completed, status:.+"
     completed_job=FindCompletedBackupJob(file, session_id, start_time, expr)
   
     print(completed_job)    
@@ -148,12 +148,12 @@ def BackupCopyJobOption():
 
     file = readFile(path)
     # [14.08.2021 17:35:23] <01> Info       START  
-    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <..> Info.+START.+"
+    expr="\[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+START.+"
     started_job=findLastStartedJob(path, file, expr)
     session_id=started_job[0]
     start_time=started_job[1]
     # [18.08.2021 18:02:45] <01> Info         Job session '16a6046b-eac7-4f4f-909e-3830ee2815d7' has been completed, status: 'Success'
-    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <.+> Info.+Job session '"+session_id+"' has been completed, status:.+"
+    expr="\[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session '"+session_id+"' has been completed, status:.+"
     completed_job=FindCompletedBackupJob(file, session_id, start_time, expr)
     print(completed_job) 
 
