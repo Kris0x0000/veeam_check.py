@@ -126,7 +126,7 @@ def BackupJobOption():
        path=base_path+backup_job_name+'\\'+'Job.'+backup_job_name+'.log'
 
     file = readFile(path)
-    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <..> Info.........START.+"
+    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <..> Info.+START.+"
     started_job=findLastStartedJob(path, file, expr)
     session_id=started_job[0]
     start_time=started_job[1]
@@ -138,17 +138,17 @@ def BackupJobOption():
 
 def BackupCopyJobOption():
     global base_path
+    
     # add '\' at the end of the path if missing
     if(base_path[-1:] != "\\"):
         base_path=base_path+"\\"
 
     # create full path to the log file
-    
     path=base_path+backup_copy_job_name+'\\'+backup_job_name+'\\'+'Job.'+backup_job_name+'.BackupSync.log'
 
     file = readFile(path)
-    # [14.08.2021 17:35:23] <01> Info         
-    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <..> Info.........START.+"
+    # [14.08.2021 17:35:23] <01> Info       START  
+    expr="\[\d{2}.\d{2}.\d{4} \d{2}:\d{2}:\d{2}] <..> Info.+START.+"
     started_job=findLastStartedJob(path, file, expr)
     session_id=started_job[0]
     start_time=started_job[1]
