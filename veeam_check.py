@@ -63,12 +63,11 @@ def findLastStartedJob(path, text, expr):
         print(2)
         sys.exit()
 
-    job=jobs[-1]
+    job=jobs[-1] # take the last one (the newest)
     elements = job.split(" ")
     backup_start_time=StripDateAndTime(job)
     session_id=elements[-1]
     session_id = session_id.strip('\n')
-    #print(session_id)
     answer=[session_id, backup_start_time]
     return answer
 
@@ -108,6 +107,8 @@ def FindCompletedBackupJob(text, session_id, start_time, expr):
             found=re.search(expr_warning, line)
             if(found):
                 return 1
+        else:
+            return 2
 
     if(max_expected_backup_end_time > now):
         return 0
