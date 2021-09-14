@@ -107,8 +107,6 @@ def FindCompletedBackupJob(text, session_id, start_time, expr):
             found=re.search(expr_warning, line)
             if(found):
                 return 1
-        else:
-            return 2
 
     if(max_expected_backup_end_time > now):
         return 0
