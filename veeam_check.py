@@ -16,7 +16,7 @@ import datetime
 base_path='C:\\ProgramData\\Veeam\\Backup\\'
 # find_time (hours) - time window to search successful backup job. Default 24 hours, menas
 # the script will search completed backups ended in the last 24 hours.
-find_time=24
+find_time=25
 
 ### DO NOT edit below, unless you know what you're doing :) ###
 ###############################################################
@@ -92,26 +92,34 @@ def FindCompletedBackupJob(text, session_id, start_time, expr):
 
     expr_warning="status: \'Warning\'"
     expr_success="status: \'Success\'"
+    expr_failed="status: \'Failed\'"
 
     delta = datetime.timedelta(hours=find_time)
     now=datetime.datetime.now(tz=None)
     max_expected_backup_end_time=start_time+delta
+    #print('max_expected_backup_end_time',max_expected_backup_end_time)
 
     for line in text:
         found = re.search(expr, line)
         if(found):
-            found=re.search(expr_success, line)
-            if(found):
-                return 0
+            if(max_expected_backup_end_time > now):
+                found=re.search(expr_success, line)
+                if(found):
+                    #print(line)
+                    return 0  # return this if expr_success found
 
-            found=re.search(expr_warning, line)
-            if(found):
-                return 1
-
-    if(max_expected_backup_end_time > now):
-        return 0
-    else:
-        return 2
+                found=re.search(expr_warning, line)
+                if(found):
+                    return 1  # return this if expr_warning found
+                found=re.search(expr_failed, line)
+                if(found):
+                    return 2  # return this if expr_failed found
+                else:
+                    return 2  # return this if none of above is matched
+            else:
+                return 2  # return this if max_expected_backup_end_time is exceeded
+        		
+    return 2
 
 def BackupJobOption():
     global base_path
