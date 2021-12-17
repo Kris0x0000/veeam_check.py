@@ -100,9 +100,11 @@ def FindCompletedBackupJob(text, session_id, start_time, expr):
     #print('max_expected_backup_end_time',max_expected_backup_end_time)
 
     for line in text:
+    
         found = re.search(expr, line)
         if(found):
             if(max_expected_backup_end_time > now):
+            
                 found=re.search(expr_success, line)
                 if(found):
                     #print(line)
@@ -111,15 +113,14 @@ def FindCompletedBackupJob(text, session_id, start_time, expr):
                 found=re.search(expr_warning, line)
                 if(found):
                     return 1  # return this if expr_warning found
+                    
                 found=re.search(expr_failed, line)
                 if(found):
                     return 2  # return this if expr_failed found
-                else:
-                    return 2  # return this if none of above is matched
             else:
                 return 2  # return this if max_expected_backup_end_time is exceeded
-        		
-    return 2
+    return 2  # return this is none of above is satisfied
+
 
 def BackupJobOption():
     global base_path
