@@ -1,0 +1,267 @@
+
+LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+expr_success found
+
+LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+expr_success found
+
+LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+expr_success found
+
+LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+expr_success found
+
+LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+expr_success found
+
+LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+expr_success found
+Mon, 17 Oct 2022 15:05:33 +0000 
+LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+Mon, 17 Oct 2022 15:05:33 +0000 
+expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+Mon, 17 Oct 2022 15:05:33 +0000 
+expr_success found
+Mon, 17 Oct 2022 15:08:06 
+LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:08:06 
+expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:08:06 
+expr_success found
+
+Mon, 17 Oct 2022 15:09:43 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:09:43 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:09:43 expr_success found
+
+Mon, 17 Oct 2022 15:13:21 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:13:21 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:15:42 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:15:42 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:15:42 max_expected_backup_end_time: 10/15/2022, 07:03:08
+
+Mon, 17 Oct 2022 15:15:42 job_complete_time: 10/14/2022, 03:20:47
+
+Mon, 17 Oct 2022 15:15:42 expr_success found
+
+Mon, 17 Oct 2022 15:16:45 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:16:45 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:16:45 max_expected_backup_end_time: 15.10.2022, 07:03:08
+
+Mon, 17 Oct 2022 15:16:45 job_complete_time: 14.10.2022, 03:20:47
+
+Mon, 17 Oct 2022 15:16:45 expr_success found
+
+Mon, 17 Oct 2022 15:17:54 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:17:54 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:17:54 max_expected_backup_end_time is exceeded 
+
+Mon, 17 Oct 2022 15:17:54 start time: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:17:54 max_expected_backup_time: 15/10/2022, 07:03:08
+
+Mon, 17 Oct 2022 15:17:55 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:17:55 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:17:55 max_expected_backup_end_time is exceeded 
+
+Mon, 17 Oct 2022 15:17:55 start time: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:17:55 max_expected_backup_time: 15/10/2022, 07:03:08
+
+Mon, 17 Oct 2022 15:19:24 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:19:24 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:19:24 max_expected_backup_end_time: 15.10.2022, 07:03:08
+
+Mon, 17 Oct 2022 15:19:24 job_complete_time: 14.10.2022, 03:20:47
+
+Mon, 17 Oct 2022 15:19:24 max_expected_backup_end_time is exceeded 
+
+Mon, 17 Oct 2022 15:19:24 start time: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:19:24 max_expected_backup_time: 15/10/2022, 07:03:08
+
+Mon, 17 Oct 2022 15:24:14 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:24:14 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:24:14 max_expected_backup_end_time: 15.10.2022, 07:03:08
+
+Mon, 17 Oct 2022 15:24:14 job_complete_time: 14.10.2022, 03:20:47
+
+Mon, 17 Oct 2022 15:24:14 expr_success found
+
+Mon, 17 Oct 2022 15:24:17 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:24:17 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:24:17 max_expected_backup_end_time: 15.10.2022, 07:03:08
+
+Mon, 17 Oct 2022 15:24:17 job_complete_time: 14.10.2022, 03:20:47
+
+Mon, 17 Oct 2022 15:24:17 expr_success found
+
+Mon, 17 Oct 2022 15:24:19 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:24:19 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:24:19 max_expected_backup_end_time: 15.10.2022, 07:03:08
+
+Mon, 17 Oct 2022 15:24:19 job_complete_time: 14.10.2022, 03:20:47
+
+Mon, 17 Oct 2022 15:24:19 expr_success found
+
+Mon, 17 Oct 2022 15:28:52 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:28:52 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:28:52 max_expected_backup_end_time: 18.10.2022, 20:28:52
+
+Mon, 17 Oct 2022 15:28:52 job_complete_time: 14.10.2022, 03:20:47
+
+Mon, 17 Oct 2022 15:28:52 expr_success found
+
+Mon, 17 Oct 2022 15:28:54 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:28:54 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:28:54 max_expected_backup_end_time: 18.10.2022, 20:28:54
+
+Mon, 17 Oct 2022 15:28:54 job_complete_time: 14.10.2022, 03:20:47
+
+Mon, 17 Oct 2022 15:28:54 expr_success found
+
+Mon, 17 Oct 2022 15:35:47 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:36:49 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:36:49 start_time: 14.10.2022, 02:03:08
+
+Mon, 17 Oct 2022 15:36:49 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:36:49 max_expected_backup_end_time: 15.10.2022, 07:03:08
+
+Mon, 17 Oct 2022 15:36:49 job_complete_time: 14.10.2022, 03:20:47
+
+Mon, 17 Oct 2022 15:36:49 expr_success found
+
+Mon, 17 Oct 2022 15:44:19 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:44:19 start_time: 14.10.2022, 02:03:08
+
+Mon, 17 Oct 2022 15:48:49 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:48:49 start_time: 14.10.2022, 02:03:08
+
+Mon, 17 Oct 2022 15:53:56 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:53:56 start_time: 14.10.2022, 02:03:08
+
+Mon, 17 Oct 2022 15:53:56 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:53:56 max_expected_backup_end_time: 15.10.2022, 07:03:08
+
+Mon, 17 Oct 2022 15:53:56 job_complete_time: 14.10.2022, 03:20:47
+
+Mon, 17 Oct 2022 15:53:56 expr_success found
+
+Mon, 17 Oct 2022 15:53:58 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:53:58 start_time: 14.10.2022, 02:03:08
+
+Mon, 17 Oct 2022 15:53:58 expr_success: \[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session 'e82ba592-717c-41f0-9905-7401e4916b20' has been completed, status:.+
+
+Mon, 17 Oct 2022 15:53:58 max_expected_backup_end_time: 15.10.2022, 07:03:08
+
+Mon, 17 Oct 2022 15:53:58 job_complete_time: 14.10.2022, 03:20:47
+
+Mon, 17 Oct 2022 15:53:58 expr_success found
+
+Mon, 17 Oct 2022 15:54:46 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:54:46 start_time: 14.10.2022, 02:03:08
+
+Mon, 17 Oct 2022 15:56:22 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:56:22 start_time: 14.10.2022, 02:03:08
+
+Mon, 17 Oct 2022 15:56:22 start_time is too old
+
+Mon, 17 Oct 2022 15:57:09 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:57:09 start_time: 14.10.2022, 02:03:08
+
+Mon, 17 Oct 2022 15:57:28 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:57:28 start_time: 14.10.2022, 02:03:08
+
+Mon, 17 Oct 2022 15:57:28 start_time is older than: 24
+
+Mon, 17 Oct 2022 15:58:00 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:58:00 start_time: 14.10.2022, 02:03:08
+
+Mon, 17 Oct 2022 15:58:00 start_time is older than: 24 hours
+
+Mon, 17 Oct 2022 15:59:46 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 15:59:46 start_time: 14.10.2022, 02:03:08
+
+Mon, 17 Oct 2022 15:59:46 Oldest backup was started before: 24 hours
+
+Mon, 17 Oct 2022 16:00:40 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Mon, 17 Oct 2022 16:00:40 start_time: 14.10.2022, 02:03:08
+
+Mon, 17 Oct 2022 16:00:40 Oldest backup was started > 24 hours ago
+
+Tue, 18 Oct 2022 10:38:17 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Tue, 18 Oct 2022 10:38:17 start_time: 14.10.2022, 02:03:08
+
+Tue, 18 Oct 2022 10:38:17 Error. The oldest backup was started at 14.10.2022, 02:03:08 so it is older than expected 24 hours.
+
+Tue, 18 Oct 2022 10:41:38 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Tue, 18 Oct 2022 10:41:38 start_time: 14.10.2022, 02:03:08
+
+Tue, 18 Oct 2022 10:41:38 Error. The oldest backup was started at 14.10.2022, 02:03:08 so it is older than expected 24 hours.
+
+Tue, 18 Oct 2022 10:41:40 LastStartedJob: e82ba592-717c-41f0-9905-7401e4916b20 at: 14/10/2022, 02:03:08
+
+Tue, 18 Oct 2022 10:41:40 start_time: 14.10.2022, 02:03:08
+
+Tue, 18 Oct 2022 10:41:40 Error. The oldest backup was started at 14.10.2022, 02:03:08 so it is older than expected 24 hours.
+
