@@ -13,7 +13,7 @@ import datetime
 ##################### edit below ################################
 
 # Path to logs. Default: C:\\ProgramData\\Veeam\\Backup\\. Double backslashes are required by Python.
-base_path='/home/kris/Dropbox/scripts/python/veeam_check.py/'
+base_path='C:\\ProgramData\\Veeam\\Backup\\'
 # find_time (hours) - time window to search successful backup job. Default 24 hours, menas
 # the script will search completed backups ended in the last 24 hours.
 find_time=24
@@ -118,8 +118,9 @@ def FindCompletedBackupJob(text, session_id, start_time, expr):
 		found = re.search(expr, line)
 		if(found):
 			job_complete_time=StripDateAndTime(found.group(0))
-			LogToFile('max_expected_backup_end_time: '+max_expected_backup_end_time.strftime("%d.%m.%Y, %H:%M:%S"))
-			LogToFile('job_complete_time: '+job_complete_time.strftime("%d.%m.%Y, %H:%M:%S"))
+			if(diag):
+				LogToFile('max_expected_backup_end_time: '+max_expected_backup_end_time.strftime("%d.%m.%Y, %H:%M:%S"))
+				LogToFile('job_complete_time: '+job_complete_time.strftime("%d.%m.%Y, %H:%M:%S"))
 			
 			if(job_complete_time < max_expected_backup_end_time):
 				
