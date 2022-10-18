@@ -189,13 +189,15 @@ def BackupJobOption():
 		LogToFile('LastStartedJob: '+started_job[0] + ' at: '+started_job[1].strftime("%d/%m/%Y, %H:%M:%S"))
 	session_id=started_job[0]
 	start_time=started_job[1]
+	
 	if(diag):
 		LogToFile('start_time: '+start_time.strftime("%d.%m.%Y, %H:%M:%S"))
 	
 	delta = datetime.timedelta(hours=find_time)
 	if(start_time+delta < now):
 		# the newest backup was started before start_time+delta
-		LogToFile("Error. The oldest backup was started at "+start_time.strftime("%d.%m.%Y, %H:%M:%S")+" so it is older than expected "+str(find_time)+" hours.")
+		if(diag):
+			LogToFile("Error. The oldest backup was started at "+start_time.strftime("%d.%m.%Y, %H:%M:%S")+" so it is older than expected "+str(find_time)+" hours.")
 		print(2)
 		sys.exit(2)
 	
@@ -227,6 +229,14 @@ def BackupCopyJobOption():
 	session_id=started_job[0]
 	start_time=started_job[1]
 	# [18.08.2021 18:02:45] <01> Info         Job session '16a6046b-eac7-4f4f-909e-3830ee2815d7' has been completed, status: 'Success'
+	
+	if(start_time+delta < now):
+		# the newest backup was started before start_time+delta
+		if(diag):
+			LogToFile("Error. The oldest backup was started at "+start_time.strftime("%d.%m.%Y, %H:%M:%S")+" so it is older than expected "+str(find_time)+" hours.")
+		print(2)
+		sys.exit(2)
+	
 	expr="\[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session '"+session_id+"' has been completed, status:.+"
 	completed_job=FindCompletedBackupJob(file, session_id, start_time, expr)
 	print(completed_job) 
