@@ -195,6 +195,7 @@ def BackupJobOption():
 		LogToFile('start_time: '+start_time.strftime("%d.%m.%Y, %H:%M:%S"))
 	
 	delta = datetime.timedelta(hours=find_time)
+	
 	if(start_time+delta < now):
 		# the newest backup was started before start_time+delta
 		if(diag):
@@ -231,6 +232,11 @@ def BackupCopyJobOption():
 	start_time=started_job[1]
 	# [18.08.2021 18:02:45] <01> Info         Job session '16a6046b-eac7-4f4f-909e-3830ee2815d7' has been completed, status: 'Success'
 	
+	if(diag):
+		LogToFile('start_time: '+start_time.strftime("%d.%m.%Y, %H:%M:%S"))
+	
+	delta = datetime.timedelta(hours=find_time)
+	
 	if(start_time+delta < now):
 		# the newest backup was started before start_time+delta
 		if(diag):
@@ -241,6 +247,7 @@ def BackupCopyJobOption():
 	expr="\[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session '"+session_id+"' has been completed, status:.+"
 	completed_job=FindCompletedBackupJob(file, session_id, start_time, expr)
 	print(completed_job) 
+	
 	
 def LogToFile(line):
 	f = open("log.txt", "a")
