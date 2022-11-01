@@ -20,7 +20,7 @@ find_time=24
 max_duration=5
 
 # diag - set it to 'True' for troubleshooting. The log.txt file will appear in the script dir.
-diag=True
+diag=False
 
 ### DO NOT edit below, unless you know what you're doing :) ###
 ###############################################################
@@ -100,9 +100,9 @@ def FindCompletedBackupJob(text, session_id, start_time, expr):
 # returns exit code
 # Job session '38129ee8-e20f-4912-ae5e-f0176077f0f9' has been completed, status: 'Success'
 
-	if(diag):
+	#if(diag):
 		#print('\nexpr_success: '+expr)
-		LogToFile('expr_success: '+expr)
+		#LogToFile('expr_success: '+expr)
 
 	expr_warning="status: \'Warning\'"
 	expr_success="status: \'Success\'"
@@ -111,7 +111,6 @@ def FindCompletedBackupJob(text, session_id, start_time, expr):
 	delta = datetime.timedelta(hours=find_time+max_duration)
 	now=datetime.datetime.now(tz=None)
 	max_expected_backup_end_time=start_time+delta
-	#print('max_expected_backup_end_time',max_expected_backup_end_time)
 
 	for line in text:
 	
@@ -129,7 +128,7 @@ def FindCompletedBackupJob(text, session_id, start_time, expr):
 				if(found):
 					if(diag):
 						#print('\nexpr_success found')
-						LogToFile('expr_success found')
+						LogToFile('Successful backup found')
 						
 					return 0  # return this if expr_success found
 
@@ -137,24 +136,34 @@ def FindCompletedBackupJob(text, session_id, start_time, expr):
 				if(found):
 					if(diag):
 						#print('\nexpr_warning found')
-						LogToFile('expr_warning found')
+						LogToFile('Backup with the warning found')
 					return 1  # return this if expr_warning found
 					
 				found=re.search(expr_failed, line)
 				if(found):
 					if(diag):
 						#print('\nexpr_failed found')
-						LogToFile('expr_failed found')
+						LogToFile('Failed backup found')
 					return 2  # return this if expr_failed found
 			else:
 				if(diag):
-						LogToFile('Error. The backup started at: '+start_time.strftime("%d/%m/%Y, %H:%M:%S")+' hasn\'t completed in expected time.')
-						LogToFile('start time: '+start_time.strftime("%d/%m/%Y, %H:%M:%S"))
-						LogToFile('max_expected_backup_time: ' + max_expected_backup_end_time.strftime("%d/%m/%Y, %H:%M:%S"))
+						LogToFile('Error. The backup started at: '+start_time.strftime("%d/%m/%Y, %H:%M:%S")+' hasn\'t been completed in expected time: '+max_expected_backup_end_time.strftime("%d/%m/%Y, %H:%M:%S"))
 				return 2  # return this if max_expected_backup_end_time is exceeded
-	if(diag):
-		#print('none')
-		LogToFile('none')
+	
+	delta = datetime.timedelta(hours=max_duration)
+	
+	if(now > max_expected_backup_end_time):
+	# the newest backup is running longer than start_time+delta
+		if(diag):
+			LogToFile('Error. The backup started at: '+start_time.strftime("%d/%m/%Y, %H:%M:%S")+' hasn\'t been completed in expected time: '+max_expected_backup_end_time.strftime("%d/%m/%Y, %H:%M:%S"))
+		return 2
+	else:
+		if(diag):
+			LogToFile("Backup id "+session_id+" started at: "+start_time.strftime("%d.%m.%Y, %H:%M:%S")+" is in progress...")
+		return 0
+			
+	if(diag):	
+		LogToFile("Unexpected error...")
 
 	return 2  # return this is none of above is satisfied
 
@@ -191,18 +200,16 @@ def BackupJobOption():
 	session_id=started_job[0]
 	start_time=started_job[1]
 	
-	if(diag):
-		LogToFile('start_time: '+start_time.strftime("%d.%m.%Y, %H:%M:%S"))
-	
 	delta = datetime.timedelta(hours=find_time)
+	max_expected_backup_start_time = start_time+delta
 	
-	if(start_time+delta < now):
+	if(now > max_expected_backup_start_time):
 		# the newest backup was started before start_time+delta
 		if(diag):
-			LogToFile("Error. The oldest backup was started at "+start_time.strftime("%d.%m.%Y, %H:%M:%S")+" so it is older than expected "+str(find_time)+" hours.")
+			LogToFile("Error. The latest backup was started at "+start_time.strftime("%d.%m.%Y, %H:%M:%S")+". The maximum backup start time for this task was: "+max_expected_backup_start_time.strftime("%d.%m.%Y, %H:%M:%S"))
 		print(2)
 		sys.exit(2)
-	
+	# Job session '35f1c231-c42d-4acc-a0f2-5e6b28462b40' has been completed, status: 'Success', '2,2 TB'
 	expr="\[\d{2}\.\d{2}\.\d{4} \d{2}\:\d{2}\:\d{2}] <\d{2}> Info\s+Job session '"+session_id+"' has been completed, status:.+"
 	
 	completed_job=FindCompletedBackupJob(file, session_id, start_time, expr)
@@ -236,11 +243,12 @@ def BackupCopyJobOption():
 		LogToFile('start_time: '+start_time.strftime("%d.%m.%Y, %H:%M:%S"))
 	
 	delta = datetime.timedelta(hours=find_time)
+	max_expected_backup_start_time = start_time+delta
 	
-	if(start_time+delta < now):
+	if(now > max_expected_backup_start_time):
 		# the newest backup was started before start_time+delta
 		if(diag):
-			LogToFile("Error. The oldest backup was started at "+start_time.strftime("%d.%m.%Y, %H:%M:%S")+" so it is older than expected "+str(find_time)+" hours.")
+			LogToFile("Error. The latest backup was started at "+start_time.strftime("%d.%m.%Y, %H:%M:%S")+". The maximum backup start time for this task was: "+max_expected_backup_start_time.strftime("%d.%m.%Y, %H:%M:%S"))
 		print(2)
 		sys.exit(2)
 	
@@ -250,11 +258,13 @@ def BackupCopyJobOption():
 	
 	
 def LogToFile(line):
-	f = open("log.txt", "a")
+	h_dir = os.path.expanduser('~')
+	#h_dir = "C:\\Users\\admin\\Desktop"
+	#print(h_dir)
+	f = open(h_dir+"\\log.txt", "a")
 	now = datetime.datetime.now()
 	tme=now.strftime("%a, %d %b %Y %H:%M:%S")
 	f.write(tme+" "+line+"\n")
-	f.write("\n")
 	f.close()
 
 
